@@ -30,13 +30,14 @@ public class sweetGift {
         sweets Candy = new sweets("Каракумы",0.25,300,"орехово-шоколадные конфеты");
         sweets Jelly = new sweets("Jellyworms",0.2,200,"разноцветное фруктовое желе");
         sweets Marshmallow = new sweets("Fluffies",0.15,600, "средние кусочки маршмэллоу");
+        sweets[] Gift = new sweets[]{Candy, Jelly, Marshmallow};
 
         //общая стоимость и вес подарка
         double giftPrice = 0;
         double giftWeight = 0;
-        for (sweets sw in ){
+        for (sweets sw : Gift){
             giftWeight += sw.getWeight();
-            giftPrice += sw.howMuch()
+            giftPrice += sw.howMuch();
         }
 
 
@@ -44,9 +45,9 @@ public class sweetGift {
         System.out.println("Общий вес подарка: "+ giftWeight*1000 + " г.");
         System.out.println("Стоимость подарка: "+giftPrice+" р.");
         System.out.println("Состав: ");
-        System.out.println(Candy.showSpec());
-        System.out.println(Jelly.showSpec());
-        System.out.println(Marshmallow.showSpec());
+        for (sweets sw : Gift) {
+            System.out.println(sw.showSpec());
+        }
     }
 
 }
