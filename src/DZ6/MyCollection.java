@@ -30,8 +30,6 @@ public class MyCollection {
 
             //сортируем по алфавиту
             Collections.sort(wordList);
-            for (String i: wordList) System.out.println(i);
-            System.out.println(0);
 
             //в отсортированном виде одинаковые слова идут друг за другом. Считаем количество повторений, сохраняем в виде ключ(слово) - значение(кол-во)
             int count = 1;
@@ -60,8 +58,8 @@ public class MyCollection {
             //находим максимальное значение, выводим все слова с этим значением
             int maxValue = Collections.max(wordStat.values());
             System.out.print("Чаще всего встречается:\n");
-            for (String a : wordStat.keySet()) {
-                if (wordStat.get(a) == maxValue) System.out.println(a + " - " + wordStat.get(a) + " шт.");
+            for (String i : wordStat.keySet()) {
+                if (wordStat.get(i) == maxValue) System.out.println(i + " - " + wordStat.get(i) + " шт.");
             }
 
         }
