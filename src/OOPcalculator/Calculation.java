@@ -8,11 +8,12 @@ public class Calculation {
         System.out.println("Это простой калькулятор. Поддерживаемые операции: +, -, *, / \nДопустимы дробные числа, дробная часть отделена запятой.");
         Scanner sc = new Scanner(System.in);
 
-        try {/** блок ввода данных */
+        try {
+            /** блок ввода данных */
             System.out.println("Введите первое число:");
             double x1 = sc.nextDouble();
 
-            String symbol = "+";
+            String symbol;
             do {
                 System.out.println("Введите символ операции: +, -, * или /:");
                 symbol = sc.next();
@@ -21,8 +22,12 @@ public class Calculation {
 
             System.out.println("Введите второе число:");
             double x2 = sc.nextDouble();
-            OOPCalculator calc = new OOPCalculator(x1, x2, symbol);
-            System.out.println(calc.calculate());
+            try {
+                OOPCalculator calc = new OOPCalculator(x1, x2, symbol);
+                System.out.println(calc.calculate());
+            } catch (DivisionByZeroException e) {
+                e.printMessage();
+            }
         } catch (InputMismatchException iEx) {//если пользователь ввёл число некорректно, выводим ошибку
             System.out.println("Неверный формат ввода числа!");
         }

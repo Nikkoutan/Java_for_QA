@@ -26,7 +26,7 @@ public class OOPCalculator {
         this.symbol = symbol;
     }
 
-    public double calculate(){
+    public double calculate () throws DivisionByZeroException {
             double result = 0;
             switch (symbol) {
             case "+":
@@ -39,8 +39,11 @@ public class OOPCalculator {
                 result = x1 * x2;
                 break;
             case "/":
-                result = x1 / x2;
-                break;
+                if (x2 == 0) throw new DivisionByZeroException();
+                else {
+                    result = x1 / x2;
+                    break;
+                }
             }
             result = Math.rint(result*10000) / 10000;
             return(result);
